@@ -77,7 +77,7 @@ class SLConfig(object):
         filename = osp.abspath(osp.expanduser(filename))
         check_file_exist(filename)
         if filename.lower().endswith(".py"):
-            with tempfile.TemporaryDirectory(dir="temps") as temp_config_dir:
+            with tempfile.TemporaryDirectory() as temp_config_dir:
                 shutil.copy(filename, temp_config_dir)
                 temp_config_name = osp.basename(filename)
                 temp_module_name = osp.splitext(temp_config_name)[0]
